@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VITALIQ — design tokens
+   Sober base, single accent. Slate ink on bone paper. Teal
+   advisory voice. Wellness-green accent used surgically.
+   ============================================================ */
+:root {
+  --bone: #f5f5f5;
+  --bone-50: #fbfbfa;
+  --bone-200: #ececea;
+
+  --teal-900: #2b4849;
+  --teal-700: #4e8487;
+  --teal-600: #5f9a9d;
+  --teal-500: #76abae;
+  --teal-300: #a5c8ca;
+  --teal-100: #d8e7e8;
+  --teal-50: #eef5f5;
+
+  --slate-950: #14181d;
+  --slate-900: #1c2128;
+  --slate-800: #242a32;
+  --slate-700: #303841;
+  --slate-600: #455160;
+  --slate-500: #5a6878;
+  --slate-400: #8090a0;
+  --slate-300: #a8b3bf;
+  --slate-200: #cfd5dc;
+  --slate-100: #e7eaee;
+  --slate-50: #f2f4f6;
+
+  /* Wellness-green accent — vitality + health, readable as text on bone */
+  --accent-700: #11633a;
+  --accent-600: #15803d;
+  --accent-500: #1ba85c;
+  --accent-300: #86d3a6;
+  --accent-100: #cdeed9;
+  --accent-50: #ecf8f1;
+
+  /* Semantic */
+  --bg: var(--bone);
+  --bg-elevated: #ffffff;
+  --bg-sunken: var(--bone-200);
+  --bg-inverse: var(--slate-900);
+  --bg-tint: var(--teal-50);
+
+  --fg1: var(--slate-900);
+  --fg2: var(--slate-700);
+  --fg3: var(--slate-500);
+  --fg4: var(--slate-400);
+  --fg-on-dark: #eceef1;
+
+  --border: var(--slate-100);
+  --border-strong: var(--slate-200);
+  --border-ink: var(--slate-700);
+
+  --highlight: #ffe9a8;
+  --highlight-accent: #fce7b8;
+  --highlight-teal: #d8e7e8;
+}
+
+@theme inline {
+  --color-bone: var(--bone);
+  --color-bone-50: var(--bone-50);
+  --color-bone-200: var(--bone-200);
+  --color-slate-950: var(--slate-950);
+  --color-slate-900: var(--slate-900);
+  --color-slate-800: var(--slate-800);
+  --color-slate-700: var(--slate-700);
+  --color-slate-600: var(--slate-600);
+  --color-slate-500: var(--slate-500);
+  --color-slate-400: var(--slate-400);
+  --color-slate-300: var(--slate-300);
+  --color-slate-200: var(--slate-200);
+  --color-slate-100: var(--slate-100);
+  --color-slate-50: var(--slate-50);
+  --color-teal-900: var(--teal-900);
+  --color-teal-700: var(--teal-700);
+  --color-teal-600: var(--teal-600);
+  --color-teal-500: var(--teal-500);
+  --color-teal-300: var(--teal-300);
+  --color-teal-100: var(--teal-100);
+  --color-teal-50: var(--teal-50);
+  --color-accent-700: var(--accent-700);
+  --color-accent-600: var(--accent-600);
+  --color-accent-500: var(--accent-500);
+  --color-accent-300: var(--accent-300);
+  --color-accent-100: var(--accent-100);
+  --color-accent-50: var(--accent-50);
+  --color-fg1: var(--fg1);
+  --color-fg2: var(--fg2);
+  --color-fg3: var(--fg3);
+  --color-fg4: var(--fg4);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg2);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--highlight);
+  color: var(--slate-900);
+}
+
+/* ─── Type utilities ───────────────────────────────────────── */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--fg1);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.t-display em {
+  font-style: italic;
+  color: var(--fg1);
+}
+.t-mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--accent-600);
+}
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+}
+.t-overline {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+.t-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01";
+}
+
+/* ─── Card hover lift (shadow only — no transform per system rules) ─── */
+.card-lift {
+  transition:
+    border-color 180ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.card-lift:hover {
+  border-color: var(--border-strong);
+  box-shadow:
+    0 4px 12px rgba(20, 24, 29, 0.06),
+    0 1px 2px rgba(20, 24, 29, 0.04);
+}
+
+/* ─── Focus ring (teal glow) ───────────────────────────────── */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(118, 171, 174, 0.35);
+}
+
+/* ─── Marquee for the trusted-by row ──────────────────────── */
+@keyframes vitaliq-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: vitaliq-marquee 50s linear infinite;
+}
+
+/* ─── Standards chip (inline mono pill) ───────────────────── */
+.cite-chip {
+  background: var(--teal-50);
+  color: var(--teal-700);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ─── In-prose highlights ─────────────────────────────────── */
+.hl-yellow {
+  background: var(--highlight);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.hl-teal {
+  background: var(--highlight-teal);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* ─── Hero columns background pattern (very low contrast) ── */
+.bg-columns {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(48, 56, 65, 0.025) 0,
+    rgba(48, 56, 65, 0.025) 1px,
+    transparent 1px,
+    transparent 96px
+  );
+}
