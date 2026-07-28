@@ -1,14 +1,16 @@
 import { Logo } from "@/components/Logo";
 import { HealthTimeline } from "@/components/HealthTimeline";
-import { WaitlistForm } from "@/components/WaitlistForm";
 import {
   Activity,
+  ArrowRight,
   Check,
   FileText,
   Shield,
   Sparkles,
   Users,
 } from "@/components/Icons";
+
+const APP_URL = "https://vitaliq-web-e23do5yn3a-el.a.run.app/dashboard";
 
 const TRUSTED = [
   { name: "The Sharma family", sub: "Delhi" },
@@ -72,7 +74,7 @@ const TIERS = [
       "Lab report storage",
       "Basic reminders",
     ],
-    cta: "Join the waitlist",
+    cta: "Get started",
     variant: "secondary" as const,
   },
   {
@@ -87,7 +89,7 @@ const TIERS = [
       "Future Self visualization",
       "Priority support",
     ],
-    cta: "Join the waitlist",
+    cta: "Get started",
     variant: "primary" as const,
     featured: true,
     pill: "Most popular",
@@ -104,7 +106,7 @@ const TIERS = [
       "Annual household health summary",
       "Phone support",
     ],
-    cta: "Join the waitlist",
+    cta: "Get started",
     variant: "dark" as const,
   },
 ];
@@ -126,11 +128,11 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-2">
             <a
-              href="#waitlist"
+              href={APP_URL}
               className="focus-ring rounded-[6px] px-4 py-2 text-[14px] font-medium text-bone transition-colors"
               style={{ background: "var(--slate-700)" }}
             >
-              Join the waitlist
+              Get Started
             </a>
           </div>
         </div>
@@ -161,8 +163,14 @@ export default function Home() {
               every member&apos;s records, AI insights on each person&apos;s data, and a future-self
               projection tied to your real commitments.
             </p>
-            <div id="waitlist" className="mt-9 scroll-mt-24">
-              <WaitlistForm source="VitalIQ" />
+            <div className="mt-9">
+              <a
+                href={APP_URL}
+                className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-7 py-4 text-[16px] font-medium text-white transition-colors"
+                style={{ background: "var(--accent-500)" }}
+              >
+                Get Started <ArrowRight size={16} />
+              </a>
             </div>
           </div>
 
@@ -624,7 +632,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="#waitlist"
+                  href={APP_URL}
                   className={`focus-ring mt-auto rounded-[8px] px-5 py-3 text-center text-[14px] font-medium transition-colors`}
                   style={
                     t.variant === "primary"
@@ -663,10 +671,16 @@ export default function Home() {
             className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.55]"
             style={{ color: "rgba(236,238,241,0.7)" }}
           >
-            We&apos;re putting the finishing touches on VitalIQ — India&apos;s family health vault. Join the waitlist to be first in line when we launch.
+            VitalIQ is live. Start managing your whole family&apos;s health records today — India&apos;s household health vault is open.
           </p>
           <div className="mt-9 flex justify-center">
-            <WaitlistForm source="VitalIQ" variant="dark" />
+            <a
+              href={APP_URL}
+              className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-7 py-4 text-[16px] font-medium text-white transition-colors"
+              style={{ background: "var(--accent-600)" }}
+            >
+              Get Started <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>
@@ -685,11 +699,11 @@ export default function Home() {
             </p>
           </div>
           <a
-            href="#waitlist"
+            href={APP_URL}
             className="focus-ring inline-flex shrink-0 items-center gap-2 rounded-[8px] px-6 py-3 text-[14px] font-medium text-white transition-colors"
             style={{ background: "var(--accent-600)" }}
           >
-            Join the waitlist
+            Get Started
           </a>
         </div>
         <div
