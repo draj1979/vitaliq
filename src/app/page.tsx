@@ -3,71 +3,71 @@ import { HealthTimeline } from "@/components/HealthTimeline";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import {
   Activity,
-  Book,
   Check,
   FileText,
   Shield,
   Sparkles,
+  Users,
 } from "@/components/Icons";
 
 const TRUSTED = [
-  { name: "Arogya Wellness", sub: "Pune" },
-  { name: "HealthFirst Diagnostics", sub: "Labs" },
-  { name: "Prana Wellness Studio", sub: "Mumbai" },
-  { name: "Sehat Clinic", sub: "Jaipur" },
-  { name: "Nirvana Health Hub", sub: "Bengaluru" },
-  { name: "Ayur Wellbeing", sub: "Kochi" },
+  { name: "The Sharma family", sub: "Delhi" },
+  { name: "3-gen households", sub: "Mumbai" },
+  { name: "Caregiver families", sub: "Bengaluru" },
+  { name: "The Iyer family", sub: "Chennai" },
+  { name: "Joint families", sub: "Hyderabad" },
+  { name: "The Mehta family", sub: "Pune" },
 ];
 
 const FEATURES = [
   {
-    n: "01 — Records",
-    title: "Every report, in one place — for good.",
-    body: "VitalIQ gathers prescriptions, lab reports, scans, and discharge summaries from every hospital and lab into one secure timeline. Never repeat a test because you couldn't find the last one.",
+    n: "01 — Family Vault",
+    title: "One vault for every family member — for good.",
+    body: "Upload health reports for your whole household — parents, children, elderly grandparents. VitalIQ extracts biomarkers, tracks trends, and keeps each member's records on their own secure timeline. Nothing lost in WhatsApp folders or email attachments.",
   },
   {
-    n: "02 — Insights",
-    title: "Your numbers, finally in plain language.",
-    body: "VitalIQ explains each lab value the way a good doctor would, tracks how it has moved across years, and tells you what actually changed — not a wall of reference ranges.",
+    n: "02 — AI Insights",
+    title: "Each member's numbers, in plain language.",
+    body: "VitalIQ explains each lab value the way a good doctor would, tracks trends across years, and flags when a pattern matters — for each person in your family, not a one-size-fits-all chart.",
   },
   {
-    n: "03 — Guidance",
-    title: "What to eat, how to move, what to take.",
-    body: "Personalized, India-aware guidance on food, activity, and medicines — grounded in your own reports and your doctor's advice. Plus reminders and alerts when two medicines may clash.",
+    n: "03 — Future Self",
+    title: "Set a commitment. See who you become.",
+    body: "Pick a goal — 10,000 steps, no sugar on weekdays, 250 pushups — and a time horizon. VitalIQ generates a photo-realistic projection of your future self, refreshed as you actually follow through.",
   },
 ];
 
 const DETAIL_ITEMS = [
   {
     Icon: FileText,
-    title: "Every report, sourced",
-    body: "Each value links back to the original lab PDF or prescription it came from. Your data, always verifiable — never a black box.",
+    title: "Always verifiable",
+    body: "Each AI-extracted biomarker value is shown to you for confirmation before it's saved. Clinical numbers are never auto-committed — you stay in control of what goes on record.",
   },
   {
-    Icon: Book,
-    title: "Grounded in ICMR guidance",
-    body: "Recommendations follow ICMR guidelines and your doctor's notes — not generic internet advice or one-size-fits-all charts.",
+    Icon: Users,
+    title: "Built for the whole household",
+    body: "One admin creates the family vault — inviting a spouse, adding children, including aging parents. Each adult sets their own privacy; guardians manage minors' data completely.",
   },
   {
     Icon: Activity,
-    title: "Tuned to you",
-    body: "Learns your conditions, allergies, and routine, so food and activity advice fits your life — vegetarian thali included, not a Western meal plan.",
+    title: "Lifestyle guidance only",
+    body: "Recommendations cover food, activity, sleep, and hydration — never medication changes, dosing, or diagnosis. When a result warrants a doctor's eye, VitalIQ says so and stops there.",
   },
   {
     Icon: Shield,
-    title: "Yours, private by design",
-    body: "You own your records. Everything is encrypted and DPDP Act-aligned — share with a doctor in one tap, revoke access any time.",
+    title: "India-first, DPDP Act-aligned",
+    body: "All health data stored in India (Mumbai). Granular consent per family member. Delete or export everything in one clear request — no friction, no dark patterns.",
   },
 ];
 
 const TIERS = [
   {
-    name: "Free",
+    name: "Starter",
     price: "₹0",
     per: "",
-    desc: "For getting your records into one place.",
+    desc: "Get your own records into one secure place.",
     features: [
-      "1 profile",
+      "1 member profile",
       "Record upload & timeline",
       "Lab report storage",
       "Basic reminders",
@@ -76,15 +76,15 @@ const TIERS = [
     variant: "secondary" as const,
   },
   {
-    name: "Plus",
+    name: "Family",
     price: "₹199",
     per: "/ month",
-    desc: "For staying on top of your own health.",
+    desc: "One vault for your household — parents, children, and you.",
     features: [
       "Up to 4 family profiles",
-      "AI insights on labs & trends",
-      "Food, activity & medicine guidance",
-      "Medicine interaction alerts",
+      "AI insights on each member's labs & trends",
+      "Lifestyle guidance on food and activity",
+      "Future Self visualization",
       "Priority support",
     ],
     cta: "Join the waitlist",
@@ -93,15 +93,15 @@ const TIERS = [
     pill: "Most popular",
   },
   {
-    name: "Family",
+    name: "Extended",
     price: "₹399",
     per: "/ month",
-    desc: "For the whole family, parents included.",
+    desc: "For larger families — aging parents and grandparents included.",
     features: [
-      "Up to 8 profiles",
+      "Up to 8 family profiles",
       "Caregiver sharing & access controls",
       "One-tap sharing with any doctor",
-      "Annual health summary",
+      "Annual household health summary",
       "Phone support",
     ],
     cta: "Join the waitlist",
@@ -143,21 +143,23 @@ export default function Home() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.12em]" style={{ color: "var(--teal-700)" }}>
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--accent-500)" }} />
-              For patients and families, by design
+              India&apos;s family health vault
             </div>
             <h1
               className="t-display text-[44px] md:text-[60px] lg:text-[72px]"
               style={{ textWrap: "balance" }}
             >
-              Every record, every trend,
+              Every family member&apos;s health
               <br />
-              and the <span className="t-mark">clarity</span>
+              in one place — with the <span className="t-mark">clarity</span>
               <br />
-              to act on your health.
+              to act.
             </h1>
             <p className="mt-7 max-w-[540px] text-[17px] leading-[1.55] text-fg2 md:text-[18px]">
-              VitalIQ brings every prescription, lab report, and scan into one secure timeline —
-              then turns your numbers into plain-language guidance on food, activity, and medicines.
+              Indian families manage health records as scattered PDFs across WhatsApp, email, and
+              paper — for parents, kids, and grandparents at once. VitalIQ is one household vault:
+              every member&apos;s records, AI insights on each person&apos;s data, and a future-self
+              projection tied to your real commitments.
             </p>
             <div id="waitlist" className="mt-9 scroll-mt-24">
               <WaitlistForm source="VitalIQ" />
@@ -174,7 +176,7 @@ export default function Home() {
       <section className="border-y bg-bone-50" style={{ borderColor: "var(--border)" }}>
         <div className="mx-auto max-w-[1240px] px-6 py-10 md:px-10">
           <div className="text-center text-[12px] tracking-[-0.005em] text-fg3">
-            Trusted by wellness clinics and health-conscious families across India
+            Trusted by health-conscious families across India — DPDP Act-aligned, stored in India
           </div>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
             {TRUSTED.map((f) => (
@@ -202,13 +204,13 @@ export default function Home() {
             className="mt-4 text-[36px] md:text-[48px]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "var(--fg1)", lineHeight: 1.08, letterSpacing: "-0.015em", textWrap: "balance" }}
           >
-            Three things your health deserves, in one{" "}
-            <span style={{ fontStyle: "italic", color: "var(--fg1)" }}>quiet, private place.</span>
+            Three things your family&apos;s health has always deserved, in one{" "}
+            <span style={{ fontStyle: "italic", color: "var(--fg1)" }}>household vault.</span>
           </h2>
           <p className="mt-5 text-[17px] leading-[1.6] text-fg2">
-            Records that stop going missing. Insights that read like a doctor explaining, not a
-            spreadsheet. Guidance on food, movement, and medicines that fits your life — and your
-            kitchen.
+            Records that stop going missing across WhatsApp and email. AI insights that read like a
+            doctor explaining, not a spreadsheet. And a future-self projection that makes your
+            commitment to change real.
           </p>
         </div>
 
@@ -243,11 +245,10 @@ export default function Home() {
                     className="mb-2 text-[10px] font-semibold uppercase tracking-[0.1em]"
                     style={{ color: "var(--teal-700)" }}
                   >
-                    ♥ VitalIQ · synced
+                    ♥ Sharma household · 4 members synced
                   </div>
                   <div className="text-[13px] leading-[1.45] text-fg1">
-                    &ldquo;Imported <span className="cite-chip">37 reports</span> from 2 labs and
-                    4 hospitals · 0 lost · all in one timeline.&rdquo;
+                    &ldquo;Imported <span className="cite-chip">54 reports</span> across 3 members · 3 labs and 5 hospitals · 0 lost.&rdquo;
                   </div>
                 </div>
               )}
@@ -273,37 +274,119 @@ export default function Home() {
                 </div>
               )}
               {i === 2 && (
-                <div
-                  className="mt-auto flex items-start gap-2.5 rounded-[10px] border p-4"
-                  style={{
-                    borderColor: "var(--accent-100)",
-                    background: "var(--accent-50)",
-                  }}
-                >
-                  <span
-                    className="shrink-0"
-                    style={{ color: "var(--accent-700)" }}
+                <div className="mt-auto space-y-2">
+                  <div
+                    className="rounded-[10px] border p-3.5"
+                    style={{ borderColor: "var(--border)", background: "var(--bone-50)" }}
                   >
-                    <Sparkles size={16} />
-                  </span>
-                  <div>
-                    <div
-                      className="mb-1 text-[12px] font-semibold leading-tight"
-                      style={{ color: "var(--accent-700)" }}
-                    >
-                      A simple plan, not a lecture
+                    <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--slate-500)" }}>
+                      Commitment
                     </div>
-                    <div
-                      className="text-[11px] leading-[1.5]"
-                      style={{ color: "var(--accent-700)" }}
-                    >
-                      15 min morning sun, ragi and leafy greens, recheck in 8 weeks.
+                    <div className="text-[13px] font-medium text-fg1">250 pushups / day</div>
+                    <div className="text-[11px] text-fg3">12-month horizon · Rahul S.</div>
+                  </div>
+                  <div
+                    className="flex items-start gap-2 rounded-[10px] border p-3.5"
+                    style={{ borderColor: "var(--accent-100)", background: "var(--accent-50)" }}
+                  >
+                    <span className="mt-0.5 shrink-0" style={{ color: "var(--accent-700)" }}>
+                      <Sparkles size={12} />
+                    </span>
+                    <div>
+                      <div className="mb-0.5 text-[11px] font-semibold" style={{ color: "var(--accent-700)" }}>
+                        Future self · 12 months
+                      </div>
+                      <div className="text-[10px] leading-[1.5]" style={{ color: "var(--accent-700)" }}>
+                        Motivational projection — not a medical forecast.
+                      </div>
                     </div>
                   </div>
                 </div>
               )}
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* ═══ FUTURE SELF ══════════════════════════════════════ */}
+      <section className="mx-auto max-w-[1240px] border-t px-6 py-24 md:px-10 md:py-32" style={{ borderColor: "var(--border)" }}>
+        <div className="grid items-center gap-12 md:grid-cols-[1fr_1.1fr] md:gap-16">
+          <div>
+            <span className="t-eyebrow">Future Self</span>
+            <h2
+              className="mt-4 text-[34px] md:text-[44px]"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "var(--fg1)", lineHeight: 1.08, letterSpacing: "-0.015em", textWrap: "balance" }}
+            >
+              The person you could become —{" "}
+              <span style={{ fontStyle: "italic", color: "var(--accent-600)" }}>made visible.</span>
+            </h2>
+            <p className="mt-5 text-[17px] leading-[1.6] text-fg2">
+              Health goals stay abstract until you can see the outcome. VitalIQ combines your
+              current photo, your health records, and a stated commitment — then generates a
+              photo-realistic projection of your future self, refreshed as your real adherence data
+              comes in.
+            </p>
+            <p className="mt-4 text-[14px] leading-[1.6]" style={{ color: "var(--fg3)" }}>
+              Every projection carries a persistent, non-dismissible label: this is a motivational
+              projection based on your stated commitment — not a medical or scientific forecast.
+            </p>
+          </div>
+
+          <div
+            className="overflow-hidden rounded-[14px] border bg-white"
+            style={{ borderColor: "var(--border)", boxShadow: "0 12px 32px rgba(20,24,29,0.08), 0 2px 6px rgba(20,24,29,0.04)" }}
+          >
+            <div className="flex items-center gap-1.5 border-b px-4 py-2.5" style={{ borderColor: "var(--border)" }}>
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "var(--slate-200)" }} />
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "var(--slate-200)" }} />
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "var(--slate-200)" }} />
+            </div>
+            <div className="p-6 md:p-7">
+              <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--teal-700)" }}>
+                <span
+                  className="text-[13px] leading-none"
+                  style={{ fontFamily: "var(--font-display)", fontStyle: "italic", color: "var(--accent-600)", letterSpacing: 0, textTransform: "none" }}
+                >
+                  ♥
+                </span>
+                Future Self · Rahul S.
+              </div>
+              <h4
+                className="mb-3 text-[18px] leading-[1.3] tracking-[-0.01em]"
+                style={{ fontFamily: "var(--font-sans)", fontWeight: 600, color: "var(--fg1)" }}
+              >
+                250 pushups / day · 12 months
+              </h4>
+              <div className="mb-4 rounded-[10px] border p-4" style={{ borderColor: "var(--border)", background: "var(--bone-50)" }}>
+                <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--fg3)" }}>
+                  Based on
+                </div>
+                <div className="text-[14px] leading-[1.55] text-fg1">
+                  Current health records ·{" "}
+                  <span className="hl-yellow">87% adherence over 6 months</span> · last updated 3d ago
+                </div>
+              </div>
+              <div
+                className="rounded-[10px] border p-4"
+                style={{ borderColor: "var(--accent-100)", background: "var(--accent-50)" }}
+              >
+                <div className="mb-2 flex items-center gap-1.5">
+                  <span style={{ color: "var(--accent-700)" }}>
+                    <Sparkles size={12} />
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--accent-700)" }}>
+                    Projection ready · 12 months
+                  </span>
+                </div>
+                <div
+                  className="rounded-[6px] px-2.5 py-1.5 text-[11px] leading-[1.5]"
+                  style={{ background: "rgba(21,128,61,0.10)", color: "var(--accent-700)" }}
+                >
+                  Motivational projection based on your stated commitment — not a medical or scientific forecast.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -318,20 +401,21 @@ export default function Home() {
               className="text-[12px] font-medium uppercase tracking-[0.12em]"
               style={{ color: "var(--teal-300)" }}
             >
-              Inside your health record
+              Inside your family vault
             </span>
             <h2
               className="mt-4 text-[34px] md:text-[44px]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "var(--fg-on-dark)", lineHeight: 1.08, letterSpacing: "-0.015em", textWrap: "balance" }}
             >
-              One timeline, every{" "}
+              Every member, every{" "}
               <span style={{ fontStyle: "italic", color: "var(--teal-300)" }}>visit,</span>{" "}
-              in context.
+              in one place.
             </h2>
             <p className="mt-5 max-w-[480px] text-[17px] leading-[1.65]" style={{ color: "rgba(236,238,241,0.75)" }}>
-              VitalIQ doesn&apos;t scatter your health across apps and paper folders. Records,
-              trends, and guidance live on one surface — so you walk into any visit already knowing
-              your own story.
+              Indian families scatter health records across WhatsApp, email, and paper — for
+              parents, kids, and grandparents at once. VitalIQ is the household vault that keeps
+              everyone&apos;s records in one place, so you walk into any visit already knowing the
+              whole family&apos;s story.
             </p>
 
             <div className="mt-9 grid gap-5">
@@ -380,7 +464,7 @@ export default function Home() {
                 >
                   ♥
                 </span>
-                Health timeline · Ananya S.
+                Family vault · Ananya S.
               </div>
               <h4
                 className="mb-3 text-[18px] leading-[1.3] tracking-[-0.01em]"
@@ -396,7 +480,7 @@ export default function Home() {
                 — a seasonal pattern, not a one-off. No need to repeat the test.
               </p>
               <div className="mb-5 flex flex-wrap gap-1.5">
-                {["2 labs · 4 hospitals", "2022–2026", "Last test 11d ago"].map((tag) => (
+                {["Sharma household", "2022–2026", "Last test 11d ago"].map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border bg-bone px-2 py-0.5 text-[10px] text-fg3"
@@ -463,9 +547,9 @@ export default function Home() {
             style={{ fontFamily: "var(--font-display)", color: "var(--fg1)", letterSpacing: "-0.005em", textWrap: "pretty" }}
           >
             My parents see four different specialists, and every visit used to start by redoing
-            tests because no one had the old reports. Now everything lives in VitalIQ — I share the
-            full history in one tap, and it even flags when a new medicine clashes with another. We
-            haven&apos;t repeated a test in months.
+            tests because no one had the old reports. VitalIQ is our family&apos;s single source of
+            truth — I share the full history in one tap, and the AI actually spots patterns a doctor
+            would miss across years of scattered reports. We haven&apos;t repeated a test in months.
           </p>
         </div>
       </section>
@@ -572,14 +656,14 @@ export default function Home() {
             className="mx-auto max-w-[760px] text-[44px] md:text-[64px]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "var(--fg-on-dark)", lineHeight: 1.05, letterSpacing: "-0.015em", textWrap: "balance" }}
           >
-            Your whole health, in{" "}
-            <span style={{ fontStyle: "italic", color: "var(--accent-500)" }}>one place.</span>
+            Your whole family&apos;s health, in{" "}
+            <span style={{ fontStyle: "italic", color: "var(--accent-500)" }}>one vault.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.55]"
             style={{ color: "rgba(236,238,241,0.7)" }}
           >
-            We&apos;re putting the finishing touches on VitalIQ. Join the waitlist to be first in line when we launch.
+            We&apos;re putting the finishing touches on VitalIQ — India&apos;s family health vault. Join the waitlist to be first in line when we launch.
           </p>
           <div className="mt-9 flex justify-center">
             <WaitlistForm source="VitalIQ" variant="dark" />
@@ -596,8 +680,8 @@ export default function Home() {
           <div>
             <Logo size={28} inverse />
             <p className="mt-4 max-w-[320px] text-[13px] leading-[1.6]" style={{ color: "rgba(236,238,241,0.55)" }}>
-              One secure home for your family&apos;s medical records — with AI guidance on food,
-              activity, and medicines.
+              India&apos;s family health vault — one household view for every member&apos;s
+              records, AI lifestyle guidance, and a future-self projection tied to your commitments.
             </p>
           </div>
           <a

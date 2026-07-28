@@ -1,8 +1,3 @@
-/**
- * Hero visual — a window-chromed mock of a VitalIQ health timeline,
- * showing scattered records pulled into one place plus plain-language
- * status on a few health markers.
- */
 export function HealthTimeline() {
   return (
     <div
@@ -25,12 +20,13 @@ export function HealthTimeline() {
           className="ml-3 text-[11px] tracking-[-0.01em] text-fg3"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          app.vitaliq.com/u/ananya
+          app.vitaliq.com/family/sharma
         </span>
       </div>
 
       {/* Body */}
       <div className="p-6 md:p-7">
+        {/* Household header */}
         <div className="mb-3 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.12em]" style={{ color: "var(--teal-700)" }}>
           <span
             className="text-[13px] leading-none"
@@ -38,11 +34,39 @@ export function HealthTimeline() {
           >
             ♥
           </span>
-          <span>VitalIQ</span>
+          <span>Sharma household</span>
           <span style={{ color: "var(--slate-200)" }}>·</span>
-          <span>synced</span>
-          <span style={{ color: "var(--slate-200)" }}>·</span>
-          <span>4 hospitals · 2 labs</span>
+          <span>4 members</span>
+        </div>
+
+        {/* Member tabs */}
+        <div className="mb-4 flex flex-wrap gap-1.5">
+          {[
+            { name: "Ananya", active: true },
+            { name: "Rakesh", active: false },
+            { name: "Priya", active: false },
+            { name: "Mohan (67)", active: false },
+          ].map((m) => (
+            <span
+              key={m.name}
+              className="shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium"
+              style={
+                m.active
+                  ? {
+                      background: "var(--teal-50)",
+                      color: "var(--teal-700)",
+                      border: "1px solid var(--teal-100)",
+                    }
+                  : {
+                      color: "var(--fg3)",
+                      border: "1px solid var(--border)",
+                      background: "white",
+                    }
+              }
+            >
+              {m.name}
+            </span>
+          ))}
         </div>
 
         <h3
@@ -53,7 +77,7 @@ export function HealthTimeline() {
         </h3>
 
         <p className="mb-5 text-[14px] leading-[1.55] text-fg2">
-          VitalIQ pulled reports from 2 labs and 4 hospitals into one record. Your{" "}
+          VitalIQ pulled reports from 2 labs and 4 hospitals into one record. Ananya&apos;s{" "}
           <span className="cite-chip">Vitamin D</span> has stayed low two winters running — no need
           to retest, here&apos;s what helps.
         </p>
@@ -63,24 +87,9 @@ export function HealthTimeline() {
           className="space-y-2 border-t pt-4"
           style={{ borderColor: "var(--border)" }}
         >
-          <MarkerRow
-            n="01"
-            title="Vitamin D"
-            value="18 ng/mL"
-            status="low"
-          />
-          <MarkerRow
-            n="02"
-            title="Blood pressure"
-            value="118/78"
-            status="normal"
-          />
-          <MarkerRow
-            n="03"
-            title="Thyroid review"
-            value="TSH 4.1"
-            status="due"
-          />
+          <MarkerRow n="01" title="Vitamin D" value="18 ng/mL" status="low" />
+          <MarkerRow n="02" title="Blood pressure" value="118/78" status="normal" />
+          <MarkerRow n="03" title="Thyroid review" value="TSH 4.1" status="due" />
         </div>
       </div>
     </div>

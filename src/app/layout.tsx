@@ -22,9 +22,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VitalIQ — your health records, in one place",
+  title: "VitalIQ — India's family health vault",
   description:
-    "VitalIQ brings every prescription, lab report, and scan into one secure timeline — then turns your numbers into plain-language guidance on food, activity, and medicines. One private home for your family's health records.",
+    "One household vault for your whole family's health records — parents, kids, grandparents. AI-powered lifestyle guidance for each member, plus a Future Self visualization tied to your real commitments. India-first, DPDP Act-aligned.",
 };
 
 export default function RootLayout({
