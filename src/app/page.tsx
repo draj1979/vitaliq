@@ -141,41 +141,48 @@ export default function Home() {
       {/* ═══ HERO ══════════════════════════════════════════════ */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-columns" />
-        <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-6 py-20 md:grid-cols-[1.05fr_1fr] md:gap-16 md:px-10 md:py-28">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.12em]" style={{ color: "var(--teal-700)" }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--accent-500)" }} />
-              India&apos;s family health vault
-            </div>
-            <h1
-              className="t-display text-[44px] md:text-[60px] lg:text-[72px]"
-              style={{ textWrap: "balance" }}
-            >
-              Every family member&apos;s health
-              <br />
-              in one place — with the <span className="t-mark">clarity</span>
-              <br />
-              to act.
-            </h1>
-            <p className="mt-7 max-w-[540px] text-[17px] leading-[1.55] text-fg2 md:text-[18px]">
-              Indian families manage health records as scattered PDFs across WhatsApp, email, and
-              paper — for parents, kids, and grandparents at once. VitalIQ is one household vault:
-              every member&apos;s records, AI insights on each person&apos;s data, and a future-self
-              projection tied to your real commitments.
-            </p>
-            <div className="mt-9">
-              <a
-                href={APP_URL}
-                className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-7 py-4 text-[16px] font-medium text-white transition-colors"
-                style={{ background: "var(--accent-500)" }}
-              >
-                Get Started <ArrowRight size={16} />
-              </a>
-            </div>
+        <div className="relative mx-auto max-w-[1240px] px-6 pt-14 pb-20 md:px-10 md:pt-20 md:pb-28">
+          {/* Label */}
+          <div className="mb-5 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.12em]" style={{ color: "var(--teal-700)" }}>
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--accent-500)" }} />
+            India&apos;s family health vault
           </div>
 
-          <div className="relative">
-            <HealthTimeline />
+          {/* Full-width headline */}
+          <h1
+            className="t-display text-[44px] md:text-[66px] lg:text-[80px]"
+            style={{ textWrap: "balance" }}
+          >
+            Every family member&apos;s health
+            <br />
+            in one place — with the <span className="t-mark">clarity</span>
+            <br />
+            to act.
+          </h1>
+
+          {/* Description + CTA | Timeline */}
+          <div className="mt-10 grid items-start gap-10 md:mt-12 md:grid-cols-[1fr_1.05fr] md:gap-16">
+            <div>
+              <p className="text-[17px] leading-[1.55] text-fg2 md:text-[18px]">
+                Indian families manage health records as scattered PDFs across WhatsApp, email, and
+                paper — for parents, kids, and grandparents at once. VitalIQ is one household vault:
+                every member&apos;s records, AI insights on each person&apos;s data, and a future-self
+                projection tied to your real commitments.
+              </p>
+              <div className="mt-9">
+                <a
+                  href={APP_URL}
+                  className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-7 py-4 text-[16px] font-medium text-white transition-colors"
+                  style={{ background: "var(--accent-500)" }}
+                >
+                  Get Started <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            <div className="relative">
+              <HealthTimeline />
+            </div>
           </div>
         </div>
       </section>
